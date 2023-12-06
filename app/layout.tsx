@@ -1,3 +1,9 @@
+import '@/app/ui/global.css';
+import { Poppins } from 'next/font/google';
+
+// Call Poppins outside of the JSX expression and assign it to a constant
+const poppinsFont = Poppins({ weight: ['400'], subsets: ['latin'] });
+
 export default function RootLayout({
   children,
 }: {
@@ -5,7 +11,9 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body className={`${poppinsFont.className} antialiased`}>
+        {children}
+      </body>
     </html>
   );
 }
